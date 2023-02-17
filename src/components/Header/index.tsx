@@ -20,6 +20,11 @@ export function Header({onAddTask}: Props){
     function onChangeTitle(event: ChangeEvent<HTMLInputElement>){
         setTitle(event.target.value);
     }
+
+    function handleNewCommentInvalid(event: ChangeEvent<HTMLInputElement>){
+        event.target.setCustomValidity('Este campo é obrigatório.');
+    }
+
     return(
         <header className={styles.header}>
             <img src={todoLogo} alt="ToDo Logo image" />
@@ -30,6 +35,8 @@ export function Header({onAddTask}: Props){
                     type="text"
                     onChange={onChangeTitle}
                     value={title} 
+                    required
+                    onInvalid={handleNewCommentInvalid}
                 />
                 <button>
                     Criar
