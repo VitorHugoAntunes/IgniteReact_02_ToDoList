@@ -18,6 +18,7 @@ export function Header({onAddTask}: Props){
     }
 
     function onChangeTitle(event: ChangeEvent<HTMLInputElement>){
+        event.target.setCustomValidity('');
         setTitle(event.target.value);
     }
 
@@ -35,8 +36,8 @@ export function Header({onAddTask}: Props){
                     type="text"
                     onChange={onChangeTitle}
                     value={title} 
-                    required
                     onInvalid={handleNewCommentInvalid}
+                    required
                 />
                 <button>
                     Criar
